@@ -1,5 +1,4 @@
 import tensorflow as tf
-
 from tensorflow.keras.layers import Input, Flatten, Conv2D, MaxPooling2D, Activation, Flatten, Dense
 from tensorflow.keras.models import Model
 
@@ -11,18 +10,14 @@ def VGGNet_19(input_shape):
     X = Activation('relu')(X)
     X = Conv2D (filters=64, kernel_size=3, strides=(1,1), padding='same')(X)
     X = Activation('relu')(X)
-
-    # maxpool_block_1
-    X = MaxPooling2D(pool_size=(3, 3), strides=(2, 2))(X)
+    X = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(X)
 
     # conv_block_2
     X = Conv2D (filters=128, kernel_size=3, strides=(1,1), padding='same')(X)
     X = Activation('relu')(X)
     X = Conv2D (filters=128, kernel_size=3, strides=(1,1), padding='same')(X)
     X = Activation('relu')(X)
-
-    # maxpool_block_2
-    X = MaxPooling2D(pool_size=(3, 3), strides=(2, 2))(X)
+    X = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(X)
 
     # conv_block_3
     X = Conv2D (filters=256, kernel_size=3, strides=(1,1), padding='same')(X)
@@ -33,9 +28,7 @@ def VGGNet_19(input_shape):
     X = Activation('relu')(X)
     X = Conv2D (filters=256, kernel_size=3, strides=(1,1), padding='same')(X)
     X = Activation('relu')(X)
-
-    # maxpool_block_3
-    X = MaxPooling2D(pool_size=(3, 3), strides=(2, 2))(X)
+    X = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(X)
 
     # conv_block_4
     X = Conv2D (filters=512, kernel_size=3, strides=(1,1), padding='same')(X)
@@ -46,9 +39,7 @@ def VGGNet_19(input_shape):
     X = Activation('relu')(X)
     X = Conv2D (filters=512, kernel_size=3, strides=(1,1), padding='same')(X)
     X = Activation('relu')(X)
-
-    # maxpool_block_4
-    X = MaxPooling2D(pool_size=(3, 3), strides=(2, 2))(X)
+    X = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(X)
 
     # conv_block_5
     X = Conv2D (filters=512, kernel_size=3, strides=(1,1), padding='same')(X)
@@ -59,9 +50,7 @@ def VGGNet_19(input_shape):
     X = Activation('relu')(X)
     X = Conv2D (filters=512, kernel_size=3, strides=(1,1), padding='same')(X)
     X = Activation('relu')(X)
-
-    # maxpool_block_5
-    X = MaxPooling2D(pool_size=(3, 3), strides=(2, 2))(X)
+    X = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(X)
 
     # flatten_block
     X = Flatten()(X)
